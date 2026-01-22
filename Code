@@ -1,0 +1,36 @@
+public class WeeklyBorrow {
+
+    public static void main(String[] args) {
+
+        int[] weeklyBorrow = {12, 18, 9, 25, 16}; // borrow count for 5 weeks
+
+        int highest = weeklyBorrow[0];
+        int highestWeek = 1;
+        int sum = 0;
+
+        // Loop through the weeks
+        for (int i = 0; i < weeklyBorrow.length; i++) {
+            sum += weeklyBorrow[i];
+
+            if (weeklyBorrow[i] > highest) {
+                highest = weeklyBorrow[i];
+                highestWeek = i + 1;
+            }
+        }
+
+        // Display weekly borrow count
+        System.out.println("Weekly Borrow Count:");
+        for (int i = 0; i < weeklyBorrow.length; i++) {
+            if (i + 1 == highestWeek) {
+                System.out.println("Week " + (i + 1) + ": " + weeklyBorrow[i] + " <-- Highest");
+            } else {
+                System.out.println("Week " + (i + 1) + ": " + weeklyBorrow[i]);
+            }
+        }
+
+        // Compute average
+        double average = (double) sum / weeklyBorrow.length;
+
+        System.out.println("\nAverage borrow count: " + average);
+    }
+}
